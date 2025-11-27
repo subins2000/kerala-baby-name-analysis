@@ -5,7 +5,7 @@ require "nokogiri"
 
 def call_name(name)
   parts = name.gsub(".", " ").split(" ")
-  parts.select { |part| part.grapheme_clusters.size > 1 }.first&.capitalize
+  name = parts.select { |part| part.grapheme_clusters.size > 2 }.first&.capitalize
 end
 
 def process_html(path)
