@@ -4,7 +4,7 @@ require 'pry'
 # 1. Establish a connection to SQLite
 ActiveRecord::Base.establish_connection(
   adapter: 'sqlite3',
-  database: 'db.sqlite'
+  database: File.dirname(__FILE__) + '/db.sqlite'
 )
 
 # 2. Define a model class (corresponding to a table)
