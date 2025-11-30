@@ -910,16 +910,18 @@ d3.selection.prototype.moveToFront = function () {
   });
 };
 
-let loopTimer;
+function pickRandomName() {
+  const num = Math.round(Math.random() * allNames.length);
+  changeName(allNames[num], allGenders[num]);
+}
+
 function stopTimer() {
-  clearTimeout(loopTimer);
+  clearInterval(window.loopTimer);
 } // removeTimers
 
 function startTimer() {
-  loopTimer = setInterval(() => {
-    const num = Math.round(Math.random() * allNames.length);
-    changeName(allNames[num], allGenders[num]);
-  }, 4000);
+  pickRandomName();
+  window.loopTimer = setInterval(pickRandomName, 4000);
 } // startTimer
 
 // Focus the chart on a name
