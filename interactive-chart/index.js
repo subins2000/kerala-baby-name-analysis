@@ -815,15 +815,23 @@ function recenter() {
 
 d3.select('#boyButton').on('click', (e) => {
   redraw('boys');
+  $("#girlButton").removeClass("active");
+  $("#boyButton").addClass("active");
 });
 d3.select('#girlButton').on('click', (e) => {
   redraw('girls');
+  $("#boyButton").removeClass("active");
+  $("#girlButton").addClass("active");
 });
 d3.select('#loopStartButton').on('click', (e) => {
   startTimer();
+  $("#loopStartButton").addClass("active");
+  $("#loopStopButton").removeClass("active");
 });
 d3.select('#loopStopButton').on('click', (e) => {
   stopTimer();
+  $("#loopStartButton").removeClass("active");
+  $("#loopStopButton").addClass("active");
 });
 
 /// ///////////////////////////////////////////////////////////
@@ -1010,6 +1018,9 @@ function redraw(choice) {
   /// ////////////////////// Context ////////////////////////////
   /// ///////////////////////////////////////////////////////////
 
+  // Clear first
+  context.selectAll('.context').remove();
+
   // Add the lines to context chart
   const contextWrapper = context.selectAll('.context').data(data, (d) => d.name);
 
@@ -1084,6 +1095,7 @@ function redraw(choice) {
 
   // Remove the previous voronoi map
   voronoiGroup.selectAll('path').remove();
+
   // Create a new voronoi map including only the visible points
   voronoiGroup
     .selectAll('path')
