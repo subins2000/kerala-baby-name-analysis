@@ -6,6 +6,11 @@ END_YEAR = 2007
 CURRENT_YEAR = Time.now.year
 TOP_N_LIMIT = 30
 
+@name_aliases = {
+  "Bindhu" => ["Bindu"],
+  "Muhammad" => ["Muhammed", "Mohammed"]
+}
+
 def rank_per_gender(gender)
   @tracked_names = Set.new
 
@@ -19,9 +24,8 @@ def rank_per_gender(gender)
                     .pluck(:call_name)
 
     top_names.each do |name|
-      # Normalize name
-      name = "Bindhu" if name == "Bindu"
-      name = "Muhammad" if name == "Mohammed" || name == "Muhammed"
+      name = @name_aliases[name] if @name_aliases.values.flatten.include?(name)
+
       @tracked_names.add(name)
     end
   end
@@ -34,9 +38,11 @@ def rank_per_gender(gender)
 
   @tracked_names.each do |name|
     ages = ((CURRENT_YEAR - END_YEAR)..(CURRENT_YEAR - START_YEAR)).to_a
+
+    call_names = @name_aliases[name] || name
     
     Human.where(
-      call_name: name,
+      call_name: call_names,
       age: ages,
       gender:
     ).group(:age).count.reverse_each do |age, count_in_this_age|
@@ -84,4 +90,4 @@ def rank_per_gender(gender)
 end
 
 File.write("boys.json", JSON.pretty_generate(rank_per_gender("M")))
-File.write("girls.json", JSON.pretty_generate(rank_per_gender("F")))
+# File.write("girls.json", JSON.pretty_generate(rank_per_gender("F")))
