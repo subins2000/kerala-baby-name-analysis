@@ -51,7 +51,7 @@ def rank_per_gender(gender)
 
   @names_and_positions_per_year = {}
 
-  binding.pry
+  # binding.pry
 
   @per_year_count.each do |year, count|
     count.sort_by { |name, count| count }.reverse!.each_with_index do |name_and_count, index|
@@ -60,11 +60,14 @@ def rank_per_gender(gender)
     end    
   end
 
-  binding.pry
+  # binding.pry
 
   @result = []
 
   @names_and_positions_per_year.each do |name, positions_per_year|
+    # The frontend JS script expects data to only have names that come at least once in the top 10 in any year
+    next unless positions_per_year.values.any? { |value| value <= 10 }
+
     @result << {
       name:,
       values:
@@ -80,5 +83,5 @@ def rank_per_gender(gender)
   @result
 end
 
-# File.write("boys.json", JSON.pretty_generate(rank_per_gender("M")))
+File.write("boys.json", JSON.pretty_generate(rank_per_gender("M")))
 File.write("girls.json", JSON.pretty_generate(rank_per_gender("F")))

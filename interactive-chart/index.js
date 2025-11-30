@@ -604,6 +604,7 @@ const maxPositionGirls = d3
 // What data should be used
 let flatData = gender === 'boys' ? flatDataBoys : flatDataGirls;
 let maxPosition = gender === 'boys' ? maxPositionBoys : maxPositionGirls;
+
 let nestedFlatData = d3
   .nest()
   .key((d) => d.name)
@@ -845,7 +846,6 @@ function searchEvent(name) {
 
     // Take all the years in the top 10 of the name and reset the brush
     // to the time between the first and last occurrence
-    console.log(name, namesByID[name], nestedFlatData);
     const subset = nestedFlatData[namesByID[name]].values;
     const minYear = Math.max(
       startYear,
