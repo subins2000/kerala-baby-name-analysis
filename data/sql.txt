@@ -1,0 +1,2 @@
+SELECT call_name, COUNT(id) AS c FROM humans GROUP BY call_name ORDER BY c DESC;
+SELECT call_name, COUNT(id) AS c FROM humans WHERE call_name = 'Sobana';
