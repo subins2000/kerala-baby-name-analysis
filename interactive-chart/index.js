@@ -253,7 +253,7 @@ const heightBrush = 500 - margin.top - margin.bottom;
 const heightAll = 100 - marginAll.top - marginAll.bottom;
 
 const startYear = 1920;
-const endYear = 2005;
+const endYear = 2007;
 const yearRange = endYear - startYear;
 
 // Stroke width per max position
