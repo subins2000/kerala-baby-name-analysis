@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Chart</title>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+  <div id="chart" style="width: 800px; height: 450px;"></div>
+  <form id="queryForm" class="flex-col space-y-4">
+    <div>SQL:</div>
+    <textarea id="query" rows="10" cols="60">SELECT * FROM humans WHERE name = 'Aishwarya';</textarea>
+    <button>Execute</button>
+  </form>
+  <div id="log"></div>
+  <script type="module" src="index.js"></script>
+</body>
+</html>
