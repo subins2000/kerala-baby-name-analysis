@@ -10,8 +10,6 @@ ActiveRecord::Base.establish_connection(
 # 2. Define a model class (corresponding to a table)
 class Human < ActiveRecord::Base
   self.table_name = "humans"
-
-  enum :district, {thrissur: "thrissur"}
 end 
 
 @first_run = !Human.table_exists?
@@ -21,13 +19,11 @@ if @first_run
   ActiveRecord::Schema.define do
     create_table :humans do |t|
       t.string :name
-      t.string :call_name
       t.string :gender
-      t.integer :age
-      t.string :district
-      t.string :local_body
-      t.string :ward
-      t.string :polling_station
+      t.integer :year
+      t.integer :count
+
+      t.index [:gender, :year]
     end
   end
 end
