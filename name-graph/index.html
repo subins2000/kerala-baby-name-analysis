@@ -9,7 +9,7 @@
   <div id="chart" style="width: 800px; height: 450px;"></div>
   <form id="queryForm" class="flex-col space-y-4">
     <div>SQL:</div>
-    <textarea id="query" rows="10" cols="60">SELECT * FROM humans WHERE name = 'Aishwarya';</textarea>
+    <textarea id="query" rows="10" cols="60">SELECT * FROM humans WHERE name LIKE 'Aishwarya' AND year > 1960;</textarea>
     <button>Execute</button>
   </form>
   <div id="log"></div>

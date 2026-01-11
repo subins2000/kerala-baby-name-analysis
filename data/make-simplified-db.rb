@@ -26,11 +26,15 @@ def normalize_names
   "Siby" => ["Sibi"],
   "Muhammad" => ["Muhammed", "Mohammed"],
   "Abdul" => ["Abdhul"],
+  "Shobana" => ["Sobhana"],
+  "Shruthi" => ["Sruthi", "Sruti"]
 }
 
   @name_aliases.each do |canonical, aliases|
     AdvancedHuman.where(call_name: aliases).update_all(call_name: canonical)
   end
+
+  puts "Normalized names"
 end
 
 START_YEAR = 1920

@@ -34,7 +34,9 @@ const makeChart = (years, counts) => {
   const layout = {
     title: 'Year vs Birth count',
     xaxis: {
-      title: 'Year'
+      title: 'Year',
+      tickmode: 'linear',
+      tickangle: -45
     },
     yaxis: {
       title: 'Birth count'
@@ -76,7 +78,7 @@ const makeChart = (years, counts) => {
       {
         x: 1997,
         y: Math.max(...counts),
-        text: "Aishwarya Rai's first film with Mohanlal",
+        text: "Aishwarya Rai - Mohanlal movie Iruvar released",
         showarrow: true,
         arrowhead: 2,
         ax: 60,
