@@ -2,6 +2,8 @@
 
 Analysis of baby names of Kerala.
 
+Blog post: https://subinsb.com/popular-baby-names-kerala/
+
 ## Thanks
 
 * State Election Commission, Kerala
