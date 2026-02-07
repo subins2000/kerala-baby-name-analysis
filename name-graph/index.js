@@ -32,7 +32,7 @@ const makeChart = (years, counts) => {
   }];
 
   const layout = {
-    title: 'Babies named "Fathima" per born year',
+    title: 'Babies named "Subin" per born year',
     xaxis: {
       title: 'Year',
       tickmode: 'linear',
@@ -42,28 +42,8 @@ const makeChart = (years, counts) => {
       title: 'Birth count'
     },
     shapes: [
-      {
-        type: 'line',
-        x0: 2005,
-        x1: 2005,
-        y0: 0,
-        y1: Math.max(...counts),
-        line: {
-          width: 2,
-          dash: 'dot'
-        }
-      }
     ],
     annotations: [
-      {
-        x: 2005,
-        y: Math.max(...counts),
-        text: "Fathima song release",
-        showarrow: true,
-        arrowhead: 2,
-        ax: 60,
-        ay: -20
-      }
     ]
   };
 

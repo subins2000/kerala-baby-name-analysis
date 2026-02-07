@@ -5,7 +5,7 @@ end
 
 AllDb.establish_connection(
   adapter: 'sqlite3',
-  database: File.dirname(__FILE__) + '/all.sqlite'
+  database: File.dirname(__FILE__) + '/../../all.sqlite'
 )
 
 # 2. Define a model class (corresponding to a table)
