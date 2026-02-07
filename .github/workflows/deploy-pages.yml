@@ -39,9 +39,10 @@ jobs:
         run: |
           cd name-graph
           npm install
-          npm run build
+          BASE_URL="/kerala-baby-name-analysis/name-graph/" npm run build
 
           cp -r dist/* ../out/name-graph/
+          cp -r ../data/* ../out/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

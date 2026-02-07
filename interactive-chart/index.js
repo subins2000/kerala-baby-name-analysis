@@ -823,16 +823,17 @@ d3.select('#girlButton').on('click', (e) => {
   $("#boyButton").removeClass("active");
   $("#girlButton").addClass("active");
 });
-d3.select('#loopStartButton').on('click', (e) => {
+document.getElementById('loopStartButton').onclick = () => {
+  stopTimer();
   startTimer();
   $("#loopStartButton").addClass("active");
   $("#loopStopButton").removeClass("active");
-});
-d3.select('#loopStopButton').on('click', (e) => {
+};
+document.getElementById('loopStopButton').onclick = () => {
   stopTimer();
   $("#loopStartButton").removeClass("active");
   $("#loopStopButton").addClass("active");
-});
+};
 
 /// ///////////////////////////////////////////////////////////
 /// //////////////////////// Search ///////////////////////////
