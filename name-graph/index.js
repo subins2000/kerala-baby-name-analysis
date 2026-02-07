@@ -32,7 +32,7 @@ const makeChart = (years, counts) => {
   }];
 
   const layout = {
-    title: 'Year vs Birth count',
+    title: 'Babies named "Fathima" per born year',
     xaxis: {
       title: 'Year',
       tickmode: 'linear',
@@ -44,19 +44,8 @@ const makeChart = (years, counts) => {
     shapes: [
       {
         type: 'line',
-        x0: 1993,
-        x1: 1993,
-        y0: 0,
-        y1: Math.max(...counts),
-        line: {
-          width: 2,
-          dash: 'dot'
-        }
-      },
-      {
-        type: 'line',
-        x0: 1997,
-        x1: 1997,
+        x0: 2005,
+        x1: 2005,
         y0: 0,
         y1: Math.max(...counts),
         line: {
@@ -67,18 +56,9 @@ const makeChart = (years, counts) => {
     ],
     annotations: [
       {
-        x: 1993,
+        x: 2005,
         y: Math.max(...counts),
-        text: 'Aishwarya Rai comes to fame',
-        showarrow: true,
-        arrowhead: 2,
-        ax: -40,
-        ay: -40
-      },
-      {
-        x: 1997,
-        y: Math.max(...counts),
-        text: "Aishwarya Rai - Mohanlal movie Iruvar released",
+        text: "Fathima song release",
         showarrow: true,
         arrowhead: 2,
         ax: 60,
