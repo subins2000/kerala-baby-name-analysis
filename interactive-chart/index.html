@@ -1,25 +1,27 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" async />
+    <link href="https://nbremer.github.io/babynames/css/bootstrap-combobox.css" type="text/css" rel="stylesheet" async />
+    <link href="https://nbremer.github.io/babynames/css/style.css" type="text/css" rel="stylesheet" async />
+    <link rel="stylesheet" href="index.css" async>
   </head>
   <body>
     <div class="chartWrapper">
       <div id="cont" class="container-fluid">
-        <!-- Search box and Boy / Girl button -->
-        <div class="row text-center">
-          <div class="col-sm-3 col-sm-offset-1 column text-center">
-            <div class="form-group">
-              <select
-                id="searchBox"
-                class="combobox input-large form-control"
-                style="display: none"
-                onchange="searchEvent(this.value)"
-              >
-                <option value="" selected="selected">Search name...</option>
-              </select>
-            </div>
+        <div class="flex items-center justify-center space-x-8">
+          <div><span class="genderTitle">Girls</span></div>
+          <div class="flex items-center">
+            <select
+              id="searchBox"
+              class="combobox input-large form-control"
+              style="display: none"
+              onchange="searchEvent(this.value)"
+            >
+              <option value="" selected="selected">Search name...</option>
+            </select>
           </div>
-          <div class="col-sm-2 col-sm-push-2 column text-center">
+          <div class="flex items-center">
             <div id="buttonWrapper" class="btn-group" data-toggle="buttons">
               <label id="boyButton" class="btn btn-default"><input type="radio" class="btn-options" /> Boys </label>
               <label id="girlButton" class="btn btn-default active"
@@ -27,23 +29,12 @@
               </label>
             </div>
           </div>
-          <div class="col-sm-3 col-sm-push-2 column text-center">
-            <div class="col-md-offset-1 col-md-4 column text-center">
-              <span class="titles" style="font-size: 13px">Loop through names</span>
+          <div class="flex items-center space-x-4">
+            <span class="titles" style="font-size: 13px">Loop through names</span>
+            <div id="buttonWrapper" class="btn-group" data-toggle="buttons">
+              <label id="loopStartButton" class="btn btn-default"><input type="radio" class="btn-options" /> On</label>
+              <label id="loopStopButton" class="btn btn-default active"><input type="radio" class="btn-options" /> Off</label>
             </div>
-            <div class="col-md-5 column text-center">
-              <div id="buttonWrapper" class="btn-group" data-toggle="buttons">
-                <label id="loopStartButton" class="btn btn-default"
-                  ><input type="radio" class="btn-options" /> On
-                </label>
-                <label id="loopStopButton" class="btn btn-default active"
-                  ><input type="radio" class="btn-options" /> Off
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-2 col-sm-pull-5 column text-center">
-            <span class="genderTitle">Girls</span>
           </div>
         </div>
 
@@ -63,9 +54,6 @@
       </div>
     </div>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-    <link href="https://nbremer.github.io/babynames/css/bootstrap-combobox.css" type="text/css" rel="stylesheet" />
-    <link href="https://nbremer.github.io/babynames/css/style.css" type="text/css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://nbremer.github.io/babynames/js/bootstrap-combobox.js"></script>
     <script src="https://nbremer.github.io/babynames/js/d3.v3.min.js"></script>

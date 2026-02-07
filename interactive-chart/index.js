@@ -1,5 +1,5 @@
-import boys from './boys.json';
-import girls from './girls.json';
+const boys = await fetch('./boys.json').then((r) => r.json());
+const girls = await fetch('./girls.json').then((r) => r.json());
 
 /// ///////////////////////////////////////////////////////////
 /// //////////////////////// Boys /////////////////////////////

@@ -1,0 +1,29 @@
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.space-x-4 {
+  gap: 2rem;
+}
+
+.space-x-8 {
+  gap: 4rem;
+}
+
+@media (max-width: 1200px) {
+  .chartWrapper {
+    padding: 10px 0;
+  }
+}
