@@ -4,7 +4,7 @@ require 'set'
 START_YEAR = 1940
 END_YEAR = 2007
 AGE_OF_A_NAME = 8
-GENDER = "F"
+GENDER = "M"
 
 @result = []
 
