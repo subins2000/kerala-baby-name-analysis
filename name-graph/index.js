@@ -32,7 +32,7 @@ const makeChart = (years, counts) => {
   }];
 
   const layout = {
-    title: 'Babies named "Subin" per born year',
+    title: 'Babies per born year',
     xaxis: {
       title: 'Year',
       tickmode: 'linear',
