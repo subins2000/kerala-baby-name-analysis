@@ -6,13 +6,19 @@
   <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 </head>
 <body>
-  <div id="chart" style="width: 800px; height: 450px;"></div>
-  <form id="queryForm" class="flex-col space-y-4">
-    <div>SQL:</div>
-    <textarea id="query" rows="10" cols="60">SELECT * FROM humans WHERE name LIKE 'Subin' AND year > 1960;</textarea>
-    <button>Execute</button>
-  </form>
-  <div id="log"></div>
+  <div style="width: 800px;margin: 0 auto;">
+    <div id="chart" style="width: 800px; height: 450px;"></div>
+    <form id="queryForm" style="text-align: center;display: flex; flex-direction: column; gap: 4px;">
+      <div>SQL:</div>
+      <div>
+        <textarea id="query" rows="2" cols="60">SELECT * FROM humans WHERE name LIKE 'Subin' AND year > 1960;</textarea>
+      </div>
+      <div>
+        <button>Execute</button>
+      </div>
+    </form>
+    <div id="log"></div>
+  </div>
   <script type="module" src="index.js"></script>
 </body>
 </html>
