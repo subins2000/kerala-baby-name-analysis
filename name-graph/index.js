@@ -51,7 +51,17 @@ const makeChart = (series) => {
 
 const runQuery = () => {
   const query = document.getElementById("query").value;
-  const result = db.exec(query);
+  let result;
+
+  clearLog();
+
+  try {
+    result = db.exec(query);
+  } catch (err) {
+    // Show SQL error in log
+    log("SQL Error: " + err.message);
+    return;
+  }
 
   // name -> { years: [], counts: [] }
   const series = {};
