@@ -12,7 +12,7 @@
     <form id="queryForm" style="text-align: center;display: flex; flex-direction: column; gap: 4px;">
       <div>SQL:</div>
       <div>
-        <textarea id="query" rows="2" cols="60">SELECT * FROM humans WHERE name LIKE 'Subin' AND year > 1960;</textarea>
+        <textarea id="query" rows="2" cols="60">SELECT * FROM humans WHERE name = 'Subin' OR name = '' AND year > 1960;</textarea>
       </div>
       <div>
         <button>Execute</button>

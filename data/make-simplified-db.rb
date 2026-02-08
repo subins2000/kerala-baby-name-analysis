@@ -15,20 +15,21 @@ end
 
 def normalize_names
   @name_aliases = {
-  "Bindhu" => ["Bindu"],
-  "Aishwarya" => ["Aiswarya", "Aiswaria"],
-  "Fathima" => ["Fatima"],
-  "Geetha" => ["Geeta", "Gita"],
-  "Sindhu" => ["Sindu"],
-  "Soumya" => ["Sowmya"],
-  "Anitha" => ["Anita"],
-  "Sandhya" => ["Sandya"],
-  "Siby" => ["Sibi"],
-  "Muhammad" => ["Muhammed", "Mohammed"],
-  "Abdul" => ["Abdhul"],
-  "Shobana" => ["Sobhana"],
-  "Shruthi" => ["Sruthi", "Sruti"]
-}
+    "Bindhu" => ["Bindu"],
+    "Aishwarya" => ["Aiswarya", "Aiswaria"],
+    "Fathima" => ["Fatima"],
+    "Geetha" => ["Geeta", "Gita"],
+    "Sindhu" => ["Sindu"],
+    "Soumya" => ["Sowmya"],
+    "Anitha" => ["Anita"],
+    "Sandhya" => ["Sandya"],
+    "Siby" => ["Sibi"],
+    "Muhammad" => ["Muhammed", "Mohammed"],
+    "Abdul" => ["Abdhul"],
+    "Shobana" => ["Sobhana"],
+    "Shruthi" => ["Sruthi", "Sruti"],
+    "Shashi" => ["Sashi", "Sasi"]
+  }
 
   @name_aliases.each do |canonical, aliases|
     AdvancedHuman.where(call_name: aliases).update_all(call_name: canonical)

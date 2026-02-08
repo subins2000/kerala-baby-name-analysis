@@ -22,14 +22,16 @@ const init = async () => {
   }
 }
 
-const makeChart = (years, counts) => {
-  const data = [{
-    x: years,
-    y: counts,
-    type: 'scatter',
-    mode: 'lines+markers',
-    name: 'Count'
-  }];
+const makeChart = (series) => {
+  const data = Object.keys(series).map(name => {
+    return {
+      x: series[name].years,
+      y: series[name].counts,
+      type: 'scatter',
+      mode: 'lines+markers',
+      name: name
+    };
+  });
 
   const layout = {
     title: 'Babies per born year',
@@ -40,28 +42,39 @@ const makeChart = (years, counts) => {
     },
     yaxis: {
       title: 'Birth count'
-    },
-    shapes: [
-    ],
-    annotations: [
-    ]
+    }
   };
 
   Plotly.newPlot('chart', data, layout);
-}
+};
+
 
 const runQuery = () => {
   const query = document.getElementById("query").value;
+  const result = db.exec(query);
 
-  const result = db.exec(query)
-  const yearAndCount = {}
+  // name -> { years: [], counts: [] }
+  const series = {};
+
   result[0]?.values?.forEach(item => {
-    console.log(item)
-    yearAndCount[item[3]] = item[4]
-  })
+    const name = item[1];   // name
+    const year = item[3];   // year
+    const count = item[4];  // count
 
-  makeChart(Object.keys(yearAndCount), Object.values(yearAndCount))
-}
+    if (!series[name]) {
+      series[name] = {
+        years: [],
+        counts: []
+      };
+    }
+
+    series[name].years.push(year);
+    series[name].counts.push(count);
+  });
+
+  makeChart(series);
+};
+
 
 document.getElementById("queryForm").addEventListener("submit", e => {
   e.preventDefault()

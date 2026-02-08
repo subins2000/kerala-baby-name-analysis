@@ -40,7 +40,7 @@ def rank_per_gender(gender)
     }
   end
 
-  @result
+  @result.sort_by! { |r| r[:name] }
 end
 
 File.write("boys.json", JSON.pretty_generate(rank_per_gender("M")))
