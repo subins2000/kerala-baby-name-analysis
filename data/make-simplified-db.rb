@@ -28,7 +28,8 @@ def normalize_names
     "Abdul" => ["Abdhul"],
     "Shobana" => ["Sobhana"],
     "Shruthi" => ["Sruthi", "Sruti"],
-    "Shashi" => ["Sashi", "Sasi"]
+    "Shashi" => ["Sashi", "Sasi"],
+    "Aswathy" => ["Aswathi"]
   }
 
   @name_aliases.each do |canonical, aliases|

@@ -33,6 +33,8 @@ const makeChart = (series) => {
     };
   });
 
+  const yPeak = Math.max(...series[Object.keys(series)[0]].counts)
+
   const layout = {
     title: 'Babies per born year',
     xaxis: {
@@ -42,7 +44,71 @@ const makeChart = (series) => {
     },
     yaxis: {
       title: 'Birth count'
-    }
+    },
+    // shapes: [
+    //   {
+    //     type: 'line',
+    //     x0: 1945,
+    //     x1: 1945,
+    //     y0: 0,
+    //     y1: yPeak - 30,
+    //     line: {
+    //       width: 2,
+    //       dash: 'dot'
+    //     }
+    //   },
+    //   {
+    //     type: 'line',
+    //     x0: 1962,
+    //     x1: 1962,
+    //     y0: 0,
+    //     y1: yPeak - 80,
+    //     line: {
+    //       width: 2,
+    //       dash: 'dot'
+    //     }
+    //   },
+    //   {
+    //     type: 'line',
+    //     x0: 1965,
+    //     x1: 1965,
+    //     y0: 0,
+    //     y1: yPeak,
+    //     line: {
+    //       width: 2,
+    //       dash: 'dot'
+    //     }
+    //   }
+    // ],
+    // annotations: [
+    //   {
+    //     x: 1945,
+    //     y: yPeak - 30,
+    //     text: 'Sheela was born',
+    //     showarrow: true,
+    //     arrowhead: 2,
+    //     ax: 90,
+    //     ay: 0
+    //   },
+    //   {
+    //     x: 1962,
+    //     y: yPeak - 80,
+    //     text: "First movie",
+    //     showarrow: true,
+    //     arrowhead: 2,
+    //     ax: -120,
+    //     ay: 0
+    //   },
+    //   {
+    //     x: 1965,
+    //     y: yPeak,
+    //     text: "Chemmeen movie release",
+    //     showarrow: true,
+    //     arrowhead: 2,
+    //     ax: -120,
+    //     ay: 0
+    //   }
+    // ]
   };
 
   Plotly.newPlot('chart', data, layout);
