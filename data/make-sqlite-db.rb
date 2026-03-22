@@ -26,21 +26,23 @@ def process_html(path)
     # <td><span class="badge bg-danger">DELETED</span>Saritha K</td>
     name = tds[1].xpath("./text()").text.strip # Using xpath to avoid getting "DELETED" text
 
+    house_name = tds[4].text.downcase
+
     gender, age = tds[5].text.split("/").map(&:strip)
 
     name_call = call_name(name)
     next if name_call.blank?
 
     @records << {
-      name:, call_name: name_call, gender:, age:, district:, local_body:, ward:, polling_station:
+      name:, call_name: name_call, gender:, age:, house_name:, district:, local_body:, ward:, polling_station:
     }
 
-    Human.insert_all(@records) && @records = [] if @records.size == 1000
+    AdvancedHuman.insert_all(@records) && @records = [] if @records.size == 1000
   end
 end
 
 time = Benchmark.measure do
-  Dir.glob("#{ENV["HTML_DIR"]}/**/*.html") do |file|
+  Dir.glob("#{ARGV[0]}/**/*.html") do |file|
     puts "Processing #{file}"
     process_html(file)
   end

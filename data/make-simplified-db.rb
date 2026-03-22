@@ -1,18 +1,5 @@
 require "./common"
 
-class AllDb < ActiveRecord::Base
-end
-
-AllDb.establish_connection(
-  adapter: 'sqlite3',
-  database: File.dirname(__FILE__) + '/../../all.sqlite'
-)
-
-# 2. Define a model class (corresponding to a table)
-class AdvancedHuman < AllDb
-  self.table_name = "humans"
-end
-
 def normalize_names
   @name_aliases = {
     "Bindhu" => ["Bindu"],

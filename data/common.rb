@@ -1,29 +1,46 @@
 require 'active_record'
 require 'pry'
 
-# 1. Establish a connection to SQLite
-ActiveRecord::Base.establish_connection(
+class Human < ActiveRecord::Base
+  self.table_name = "humans"
+end
+
+class AdvancedHuman < ActiveRecord::Base
+  self.table_name = "humans"
+end
+
+Human.establish_connection(
   adapter: 'sqlite3',
   database: File.dirname(__FILE__) + '/db.sqlite'
 )
 
-# 2. Define a model class (corresponding to a table)
-class Human < ActiveRecord::Base
-  self.table_name = "humans"
-end 
+AdvancedHuman.establish_connection(
+  adapter: 'sqlite3',
+  database: File.dirname(__FILE__) + '/../../all.sqlite'
+)
 
-@first_run = !Human.table_exists?
+Human.connection.execute("PRAGMA journal_mode = WAL")
+AdvancedHuman.connection.execute("PRAGMA journal_mode = WAL")
 
-# 3. Create the table (migration-like setup)
-if @first_run
-  ActiveRecord::Schema.define do
-    create_table :humans do |t|
-      t.string :name
-      t.string :gender
-      t.integer :year
-      t.integer :count
+if !Human.table_exists?
+  Human.connection.create_table :humans do |t|
+    t.string :name
+    t.string :gender
+    t.integer :year
+    t.integer :count
 
-      t.index [:gender, :year]
-    end
+    t.index [:gender, :year]
+  end
+end
+
+if !AdvancedHuman.table_exists?
+  AdvancedHuman.connection.create_table :humans do |t|
+    t.string :name
+    t.string :call_name
+    t.string :house_name
+    t.string :gender
+    t.integer :age
+    t.integer :polling_station
+    t.string :district
   end
 end
